@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Central da Livraria</title>
+
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top" id="mainNav">
+    <a class="navbar-brand" style="color: black;"href="index.html">Central da Livraria </a>
+    <i class="material-icons" id="iconBook">&#xe0e0;</i>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="index.html">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Funcionarios">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFuncionario" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Funcionários</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseFuncionario">
+            <li>
+              <a href="crud_funcionario.html">Cadastrar funcionário</a>
+            </li>
+            <li>
+              <a href="tabela_funcionario.html">Visualizar funcionários</a>
+            </li>
+          </ul>
+        </li>
+
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseEstoque" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Estoque</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseEstoque">
+            <li>
+              <a href="crud_estoque.html">Cadastrar Estoque</a>
+            </li>
+            <li>
+              <a href="tabela_estoque.html">Visualizar Estoque</a>
+            </li>
+          </ul>
+        </li>
+
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Livros">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseLivros" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Livros</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseLivros">
+            <li>
+              <a href="crud_livro.html">Cadastrar Livro</a>
+            </li>
+            <li>
+              <a href="tabela_livro.html">Visualizar Livros</a>
+            </li>
+          </ul>
+        </li>
+
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fornecedores">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFornecedores" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Fornecedores</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseFornecedores">
+            <li>
+              <a href="crud_fornecedor.html">Cadastrar Fornecedores</a>
+            </li>
+            <li>
+              <a href="tabela_fornecedor.html">Visualizar Fornecedores</a>
+            </li>
+          </ul>
+        </li>
+        
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="color: black;">
+            <i class="fa fa-fw fa-sign-out"></i>Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Você está acessando o quadro de funcionários</li>
+      </ol>
+   
+
+      <div class="col-sm-12">
+
+      <!-- se não tiver funcionario cadastrado if aqui >>>> 
+
+        <div class="center">
+          <span class="infoSystem"> 
+          <i class="fa fa-info-circle"></i> Você ainda não possui nenhum funcionário cadastrado!
+          </span>
+        </div>
+        <div class="center">
+          <a href="#" type="submit" class="btn btn-warning"> Cadastrar </a>
+        </div> -->
+
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Tabela de Estoque</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#Código</th>
+                  <th>Estoque</th>
+                  <th>Quantidade Recebida</th>
+                  <th>Quantidade Total</th>
+                  <th>Código livros</th>
+                  <th>Data Atualização</th>
+                  <th style="color: green;">Editar</th>
+                  <th style="color: red;">Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>000</td>
+                  <td>Livro capa Grossa</td>
+                  <td>5</td>
+                  <td>17</td>
+                  <td>000</td>
+                  <td>10/10/2016</td>
+                  <td style=" text-align: center;"><a href="#" type="buttom"> <i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                  <td style=" text-align: center;">
+                    <a  href="#" data-toggle="modal" data-target="#modalExcluir" type="buttom">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Copyright © Central da Livraria 2018</div>
+      </div>
+    </div>
+
+         
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Central da Livraria 2018</small>
+        </div>
+      </div>
+    </footer>
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Você deseja sair?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-body">Selecione sair e encerre a sua sessão.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancela</button>
+            <a class="btn btn-primary" href="https://www.google.com/">Sair</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!--  Modal Excluir-->
+  <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo excluir o estoque?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="text-center">
+              #codigo estoque <br />
+              Nome do estoque <br />
+            <i class="fa fa-table" aria-hidden="true" style="font-size: 20px;"></i>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Voltar</button>
+            <a class="btn btn-danger" href="id pra excluir">Excluir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/sb-admin-charts.min.js"></script>
+  </div>
+</body>
+
+</html>
